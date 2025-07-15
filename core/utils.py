@@ -1,0 +1,1 @@
+# math helper fuctions, normal dist wrappers + error checks
