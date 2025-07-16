@@ -1,0 +1,3 @@
+def extract_option_parameters(df) -> list[dict]:
+    # convert yahoo finance output into a clean structure
+    ...

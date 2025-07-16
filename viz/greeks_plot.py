@@ -1,0 +1,3 @@
+def plot_greeks_vs_price(S_range, K, T, r, sigma):
+    # generates a subplot of each greek
+    ...
