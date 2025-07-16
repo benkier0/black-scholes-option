@@ -8,16 +8,27 @@ from datetime import datetime
 def prepare_vol_surface_data(options: list[dict], valuation_date: datetime) -> pd.DataFrame:
     rows = []
     for opt in options:
-        expiry = pd.to_datetime(opt["expiry"]).replace(tzinfo=None)  # <- make tz-naive
-        ttm = (expiry - valuation_date).days / 365.0
+        expiry_raw = opt.get("expiry", None)
+        try:
+            expiry = pd.to_datetime(expiry_raw).replace(tzinfo=None)
+        except Exception as e:
+            continue
+
+        ttm_seconds = (expiry - valuation_date).total_seconds()
+        ttm = ttm_seconds / (365.25 * 24 * 3600)
         if ttm <= 0:
             continue
+
         rows.append({
             "strike": opt["strike"],
             "ttm": ttm,
             "impliedVol": opt["impliedVol"],
         })
-    return pd.DataFrame(rows)
+
+    df = pd.DataFrame(rows)
+    print(f"Constructed DataFrame with shape: {df.shape}")
+    return df
+
 
 
 def plot_vol_surface(df: pd.DataFrame):
@@ -25,6 +36,9 @@ def plot_vol_surface(df: pd.DataFrame):
     Plot implied volatility surface using Plotly.
     """
     # Create grid
+    print("df_surface columns:", df.columns)
+    print("df_surface head:\n", df.head())
+
     X = df['strike']
     Y = df['ttm']
     Z = df['impliedVol']
