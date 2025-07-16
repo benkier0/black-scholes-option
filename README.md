@@ -1,20 +1,38 @@
-# black-scholes-options
 
-## Example Flow: Real-World Use Case
-1. Get Market Data
-    fetch_data.get_options_chain("AAPL", "2025-07-18")
-    Clean it → list of strikes, market prices
+---
 
-2. Compute Implied Vol
-    For each (S, K, T, r, market_price):
-    implied_volatility(...)
+## 💡 Features
 
-3. Plot Vol Surface
-    plot_vol_surface(...)
+- ✅ Black-Scholes pricing for European calls and puts  
+- ✅ Full calculation of Greeks: Δ, Γ, ν, Θ, ρ  
+- ✅ Real options chain fetching & cleaning (Yahoo Finance)  
+- ✅ Implied volatility surface visualization  
+- ✅ Interactive Greek analysis with line plots  
+- ✅ Modular architecture (easy to extend)
 
-4. Price an Option
-    black_scholes_price(S, K, T, r, sigma)
-    View greeks(...)
+---
 
-5. Compare to Monte Carlo
-    monte_carlo_price(...)
+
+## 🛠 Tech Stack
+
+- Python 3.9+
+- `scipy`, `pandas`, `matplotlib`
+- Yahoo Finance API (`yfinance`)
+- Modular OOP-style architecture
+- Clean, reproducible code
+
+---
+
+## 🔬 What You Can Do Next
+
+Here are a few directions I'm considering (or you can try if you're exploring this repo):
+
+- ⏱ Add Monte Carlo simulation for American options  
+- 📉 Build implied volatility smile fitting  
+- 🧠 Integrate with LLM for auto-analysis of positions
+
+---
+
+## 👋 About Me
+
+https://github.com/benkier0
