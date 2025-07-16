@@ -23,13 +23,7 @@
 
 ---
 
-## 🔬 What You Can Do Next
-
-Here are a few directions I'm considering (or you can try if you're exploring this repo):
-
-- ⏱ Add Monte Carlo simulation for American options  
-- 📉 Build implied volatility smile fitting  
-- 🧠 Integrate with LLM for auto-analysis of positions
+![Demo](assets/ss.png)
 
 ---
 
